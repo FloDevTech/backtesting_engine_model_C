@@ -1,0 +1,8 @@
+polars
+matplotlib
+jupyter
+pytest
+numpy
+pandas
+plotly
+
