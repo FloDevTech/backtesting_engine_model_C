@@ -27,6 +27,7 @@ class DataModel():
         self.instrument: Instrument = Instrument()
         self.data : pl.DataFrame = None
         self.time_frame : TimeFrame = TimeFrame.M1
+        self._current_index : int = 0
 
     def load_data_from_csv(self, path_txt: str, has_header: bool = True):
         """
@@ -273,3 +274,7 @@ class DataModel():
         else:
             print("No hay suficientes líneas en el archivo para evaluar lineas[1].")
         return has_header, file_type
+    def get_current_index(self):
+        return self._current_index
+    def set_current_index(self, index: int):
+        self._current_index = index
