@@ -137,3 +137,4 @@ cython_debug/
 # User specific exclusions
 *.csv
 *.ipynb
+*.pdf
