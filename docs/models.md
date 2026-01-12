@@ -7,8 +7,9 @@ Este documento proporciona una guía detallada sobre los modelos utilizados en e
 1. [CommissionModel](#commissionmodel)
 2. [DataModel](#datamodel)
 3. [Instrument](#instrument)
-4. [SwapModel](#swapmodel)
-5. [Enums](#enums)
+4. [SlippageModel](#slippagemodel)
+5. [SwapModel](#swapmodel)
+6. [Enums](#enums)
 
 ---
 
@@ -97,6 +98,39 @@ Representa un instrumento financiero con todas sus propiedades y reglas de negoc
 - `default_slippage_pip` (float): Slippage por defecto en pips.
 - `commission_model` (CommissionModel): Modelo de comisión asociado.
 - `swap` (SwapModel): Modelo de swap asociado.
+- `slippage_model` (SlippageModel): Modelo de slippage asociado.
+
+---
+
+---
+
+## SlippageModel
+
+El módulo `slippage_model.py` define clases para simular el deslizamiento (slippage) en las ejecuciones de órdenes.
+
+### Clase Base: `SlippageModel`
+
+**Atributos:**
+- `slippage` (float): Valor del slippage.
+- `name` (str): Nombre del modelo.
+- `type` (TypeChange): Tipo de slippage (MONEY, PERCENTAGE, POINT).
+
+### Subclases
+
+#### `SlippageMoney`
+Aplica un slippage fijo monetario.
+- **Constructor**: `__init__(slippage: float)`
+
+#### `SlippagePercentage`
+Aplica un slippage como porcentaje del precio.
+- **Constructor**: `__init__(slippage: float)`
+
+#### `SlippagePoint`
+Aplica un slippage basado en puntos o pips.
+- **Constructor**: `__init__(slippage: float)`
+
+#### `SlippageNone`
+Sin slippage.
 
 ---
 
