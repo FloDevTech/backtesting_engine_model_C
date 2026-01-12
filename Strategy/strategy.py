@@ -37,11 +37,29 @@ class Strategy(ABC):
         - Define artifacts.
         """
         pass
-
     @abstractmethod
-    def next(self):
+    def notify_order(self, order):
         """
-        Method called on every new event (e.g., new new bar/tick).
+        Method called when an order is updated.
+        Use this method to:
+        - Check conditions.
+        - Place orders (buy/sell).
+        - Manage positions.
+        """
+        pass
+    @abstractmethod
+    def notify_position(self, position):
+        """
+        Method called when a position is updated.
+        Use this method to:
+        - Check conditions.
+        - Place orders (buy/sell).
+        """
+        pass
+    @abstractmethod
+    def notify(self, event):
+        """
+        Method called on every new event (e.g., new bar/tick).
         Use this method to:
         - Check conditions.
         - Place orders (buy/sell).
