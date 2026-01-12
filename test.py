@@ -12,9 +12,11 @@ from models.swap_model import SwapModel,SwapMoney,SwapPorcentage,SwapPoint,SwapN
 from models.instrument_model import Instrument
 from models.data_model import DataModel
 from Strategy.strategies.GoldenCross_strategy import GoldenCross_strategy
+from time import time
 
 
 
+t1 = time()
 data_nmodel = DataModel()
 
 path_txt = './data/NDXm.csv'
@@ -29,3 +31,5 @@ strategy = GoldenCross_strategy(data=data_nmodel)
 
 event_loop = Engine(strategy=strategy, data=data_nmodel)
 event_loop.run()
+t2 = time()
+print(t2-t1)

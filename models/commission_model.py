@@ -44,7 +44,7 @@ class CommissionMoney(CommissionModel):
         self.name : str = ""
         self.type : TypeChange = TypeChange.MONEY
     
-class CommissionPorcentage(CommissionModel):
+class CommissionPercentage(CommissionModel):
     """
     Commission model based on a percentage of the trade value.
     """

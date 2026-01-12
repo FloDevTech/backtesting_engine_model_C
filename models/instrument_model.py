@@ -1,6 +1,7 @@
 from models.model import DataType
 from models.commission_model import CommissionNone,CommissionModel
 from models.swap_model import SwapNone,SwapModel
+from models.slippage_model import SlippageNone,SlippageModel
 
 class Instrument():
     """
@@ -19,6 +20,7 @@ class Instrument():
         order_size_step (float): The step size for order size.
         commission_model (CommissionModel): The commission model associated with the instrument.
         swap (SwapModel): The swap model associated with the instrument.
+        slippage_model (SlippageModel): The slippage model associated with the instrument.
     """
     
     name : str = ""
@@ -33,6 +35,7 @@ class Instrument():
     order_size_step : float = 0
     commission_model: CommissionModel = CommissionNone()
     swap : SwapModel = SwapNone()
+    slippage_model : SlippageModel = SlippageNone()
 
     def __init__(self ,
         name : str ="" , description : str ="",
@@ -40,7 +43,8 @@ class Instrument():
         pip_tick_size : float = 0, pip_tick_step : float = 0,
         default_spread_pip : float = 0, default_slippage_pip : float = 0,
         order_size_multiplier : float = 0,order_size_step : float = 0,
-        commission_model: CommissionModel = CommissionNone(),swap : SwapModel = SwapNone()):
+        commission_model: CommissionModel = CommissionNone(),swap : SwapModel = SwapNone(),
+        slippage_model: SlippageModel = SlippageNone()):
         """
         Initializes the Instrument with the given parameters.
 
@@ -57,6 +61,7 @@ class Instrument():
             order_size_step (float): Step size for order size (default: 0).
             commission_model (CommissionModel): Commission model (default: CommissionNone).
             swap (SwapModel): Swap model (default: SwapNone).
+            slippage_model (SlippageModel): Slippage model (default: SlippageNone).
         """
         
         self.name : str = name
@@ -71,4 +76,5 @@ class Instrument():
         self.order_size_step : float = order_size_step
         self.commission_model: CommissionModel = commission_model
         self.swap : SwapModel = swap  
+        self.slippage_model : SlippageModel = slippage_model
     
